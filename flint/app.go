@@ -16,6 +16,7 @@ func NewApp() *cli.App {
 		cli.BoolFlag{"skip-readme", "skip check for README", ""},
 		cli.BoolFlag{"skip-contributing", "skip check for contributing guide", ""},
 		cli.BoolFlag{"skip-license", "skip check for license", ""},
+		cli.BoolFlag{"skip-changelog", "skip check for changelog", ""},
 		cli.BoolFlag{"skip-bootstrap", "skip check for bootstrap script", ""},
 		cli.BoolFlag{"skip-test-script", "skip check for test script", ""},
 		cli.BoolFlag{"skip-scripts", "skip check for all scripts", ""},
@@ -92,6 +93,7 @@ func newFlagsFromContext(c *cli.Context) *Flags {
 		RunLicense:      !c.Bool("skip-license"),
 		RunBootstrap:    runBootstrap,
 		RunTestScript:   runTestScript,
+		RunChangelog:    !c.Bool("skip-changelog"),
 	}
 	return flags
 }
